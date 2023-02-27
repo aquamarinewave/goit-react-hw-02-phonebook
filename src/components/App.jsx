@@ -14,7 +14,8 @@ class App extends Component {
   }
 
   formSubmitHandler = newContact => {
-   const normName = newContact.name.toLowerCase();
+    const normName = newContact.name.toLowerCase();
+    console.log(newContact.name);
     this.state.contacts.find(({ name }) => name.toLowerCase() === normName)
       ? alert(newContact.name + "is already in contscts")
       : this.setState(prevState => {
@@ -38,9 +39,9 @@ class App extends Component {
 
   render() {
 
-    const normalizedFilter = this.filter.toLowerCase();
+    const normalizedFilter = this.state.filter.toLowerCase();
 
-    const visibleContacts = this.contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter))
+    const visibleContacts = this.state.contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter))
 
     return (
       <Container>
