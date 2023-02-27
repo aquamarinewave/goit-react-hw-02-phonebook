@@ -15,7 +15,6 @@ class App extends Component {
 
   formSubmitHandler = newContact => {
     const normName = newContact.name.toLowerCase();
-    console.log(newContact.name);
     this.state.contacts.find(({ name }) => name.toLowerCase() === normName)
       ? alert(newContact.name + "is already in contscts")
       : this.setState(prevState => {
